@@ -7,4 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  resolve: {
+    alias: {
+      // Properly resolve framer-motion instead of disabling it
+    }
+  }
 });

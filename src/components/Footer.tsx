@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// Temporarily comment out framer-motion import to test if it's causing the issue
+// import { motion } from 'framer-motion';
 import { TrendingUp, MapPin, Twitter, Instagram, Send } from 'lucide-react';
 
 const Footer = () => {
@@ -60,24 +61,25 @@ const Footer = () => {
   const SparkleEffect = ({ className = "" }) => (
     <div className={`absolute inset-0 pointer-events-none ${className}`}>
       {[...Array(3)].map((_, i) => (
-        <motion.div
+        // Temporarily comment out motion component
+        <div
           key={i}
           className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
-          animate={{
-            scale: [0, 1, 0],
-            opacity: [0, 1, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            delay: i * 1.3,
-            ease: "easeInOut"
-          }}
+          // animate={{
+          //   scale: [0, 1, 0],
+          //   opacity: [0, 1, 0],
+          //   rotate: [0, 180, 360],
+          // }}
+          // transition={{
+          //   duration: 4,
+          //   repeat: Infinity,
+          //   delay: i * 1.3,
+          //   ease: "easeInOut"
+          // }}
         />
       ))}
     </div>
@@ -95,22 +97,20 @@ const Footer = () => {
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Brand & Description */}
             <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+              {/* Temporarily comment out motion component */}
+              <div className="mb-6">
+                {/* initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="mb-6"
-              >
+                viewport={{ once: true }} */}
                 <div className="flex items-center space-x-2 mb-4">
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg relative overflow-hidden"
-                  >
+                  {/* Temporarily comment out motion component */}
+                  <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg relative overflow-hidden">
+                    {/* whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }} */}
                     <SparkleEffect />
                     <TrendingUp className="h-6 w-6 text-white" />
-                  </motion.div>
+                  </div>
                   <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Statsinfoz
                   </span>
@@ -133,26 +133,26 @@ const Footer = () => {
                 </div>
 
                 {/* Primary Telegram CTA */}
-                <motion.div className="mb-6">
-                  <motion.a
+                <div className="mb-6">
+                  <a
                     href="https://t.me/+b-Fnu4EtaQY1MmY0"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                   >
+                    {/* whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }} */}
                     <SparkleEffect />
                     <Send className="h-5 w-5 mr-2" />
                     Join Our Telegram Channel
-                    <motion.div
+                    <div
                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.6 }}
                     />
-                  </motion.a>
-                </motion.div>
+                    {/* initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.6 }} */}
+                  </a>
+                </div>
 
                 {/* Contact Note */}
                 <div className="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-500/20 rounded-lg p-4 relative overflow-hidden">
@@ -163,16 +163,15 @@ const Footer = () => {
                     Our team responds within minutes during business hours.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Links Sections */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <div>
+              {/* initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }} */}
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 {footerLinks.company.map((link, index) => (
@@ -186,14 +185,13 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <div>
+              {/* initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }} */}
               <h3 className="text-white font-semibold mb-4">Services</h3>
               <ul className="space-y-2">
                 {footerLinks.services.map((link, index) => (
@@ -207,14 +205,13 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <div>
+              {/* initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }} */}
               <h3 className="text-white font-semibold mb-4">Sports</h3>
               <ul className="space-y-2 mb-6">
                 {footerLinks.sports.map((link, index) => (
@@ -250,20 +247,21 @@ const Footer = () => {
                 <p className="text-sm text-gray-400 mb-3">
                   Get the latest tips and updates directly on Telegram
                 </p>
-                <motion.a
+                <a
                   href="https://t.me/+b-Fnu4EtaQY1MmY0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  // framer-motion properties removed
+                  // whileHover={{ scale: 1.02 }}
+                  // whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium text-sm relative overflow-hidden w-full justify-center"
                 >
                   <SparkleEffect />
                   <Send className="h-4 w-4 mr-2" />
                   Join Channel
-                </motion.a>
+                </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -271,27 +269,25 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
+            <div className="flex items-center space-x-4">
+              {/* initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex items-center space-x-4"
-            >
+              viewport={{ once: true }} */}
               <span className="text-gray-400 mr-2">Follow us:</span>
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <motion.a
+                  <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
                     className={`group w-12 h-12 bg-slate-800/50 hover:bg-gradient-to-r hover:${social.color} border border-blue-500/20 hover:border-transparent rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 relative overflow-hidden`}
                     title={`${social.name} - ${social.username}`}
                   >
+                    {/* whileHover={{ scale: 1.2, y: -2 }}
+                    whileTap={{ scale: 0.9 }} */}
                     <SparkleEffect />
                     <Icon className="h-5 w-5" />
                     
@@ -299,19 +295,17 @@ const Footer = () => {
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                       {social.username}
                     </div>
-                  </motion.a>
+                  </a>
                 );
               })}
-            </motion.div>
+            </div>
 
             {/* Legal Links */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
+            <div className="flex flex-wrap items-center gap-6 text-sm">
+              {/* initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap items-center gap-6 text-sm"
-            >
+              viewport={{ once: true }} */}
               {footerLinks.legal.map((link, index) => (
                 <a
                   key={index}
@@ -321,7 +315,7 @@ const Footer = () => {
                   {link.name}
                 </a>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
